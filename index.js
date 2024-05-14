@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const {Circle, Square, Triangle} = require("./library/shapes")
 
-console.log(Circle)
+// inquirer questions for user to input their desired text, shape and colors
 
 inquirer
   .prompt([
@@ -34,7 +34,7 @@ inquirer
       name: 'shapeColor',
     },
   ])
-
+// Defining the variable of genericShape based on user input. This also references the classes from shapes.j
   .then(({ shape, shapeColor, textColor, letters }) => {
     let genericShape;
     if (shape === "circle") {
@@ -44,7 +44,7 @@ inquirer
     } else if (shape === "triangle") {
       genericShape = new Triangle(shapeColor, textColor, letters);
     }
-
+// used for writing the code of the final shape and text to the SVG file.
     fs.writeFile('./library/logo.svg', genericShape.renderSVG() ,(err) => {
       if (err) {console.log(err)}
       else {console.log("Successfully created logo")}

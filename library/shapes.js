@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+// Parant class Shape with constructors from user input
 class Shape {
     constructor(shapeColor, textColor, letters) {
         this.shapeColor = shapeColor
@@ -7,12 +7,12 @@ class Shape {
         this.letters = letters
     }
 
-
+// Function to display SVG content that will ultimately be sent to logo.svg through fs.writefile
     renderSVG() {
         return `<svg  width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">${this.create()}</svg>`
     }
 }
-
+// Extensions of Shape (Circle, Square, Triangle)
 class Circle extends Shape {
     constructor(shapeColor, textColor, letters) {
         super(shapeColor, textColor, letters)
